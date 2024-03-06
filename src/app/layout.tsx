@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from '@/shared/themes/theme';
+import CssBaseline from '@mui/material/CssBaseline';
+import { NavBar } from "@/features/nav-bar/components/nav-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <AppRouterCacheProvider options={{key: 'css'}}>
+          <body className={inter.className}>
+            <ThemeProvider theme={theme}>
+            <NavBar />
+            <CssBaseline />
+            {children}
+            </ThemeProvider>
+            </body>
+      </AppRouterCacheProvider>
     </html>
   );
 }
