@@ -7,6 +7,9 @@ const SwtichMode = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,
     padding: 7,
+    position: 'absolute',
+    top: 30,
+    right: 30,
     '& .MuiSwitch-switchBase': {
       margin: 1,
       padding: 0,
@@ -48,6 +51,7 @@ const SwtichMode = styled(Switch)(({ theme }) => ({
       backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
       borderRadius: 20 / 2,
     },
+   
   }));
 
   export default SwtichMode;
