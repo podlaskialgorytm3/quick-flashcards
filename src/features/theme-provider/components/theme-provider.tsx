@@ -7,6 +7,7 @@ import { use, useState } from 'react';
 import type { PaletteMode } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import SwtichMode from './switch-mode';
+import { Loading  } from './loading';
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
@@ -25,7 +26,7 @@ export const ThemeContainer = ({ children }: Readonly<{children: React.ReactNode
         }
         setTimeout(() => { 
             setIsLoading(false);
-        }, 1)
+        }, 2000)
     }, [mode])
 
     const theme = createTheme({
@@ -45,7 +46,7 @@ export const ThemeContainer = ({ children }: Readonly<{children: React.ReactNode
             localStorage.setItem('mode', mode === 'light' ? 'dark' : 'light');
       }
 
-      if(isLoading) return <div>Loading...</div>;
+      if(isLoading) return <Loading />;
 
 
     return (
