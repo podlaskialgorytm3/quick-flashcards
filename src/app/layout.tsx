@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeContainer } from "@/features/theme-provider/components/theme-provider";
-
-const inter = Inter({ subsets: ["latin"] });
+import { defaultFont } from "@/shared/config/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppRouterCacheProvider options={{key: 'css'}}>
-          <body className={inter.className}>
+          <body className={defaultFont.className}>
             <ThemeContainer>
             <CssBaseline />
             {children}

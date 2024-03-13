@@ -1,13 +1,7 @@
 import {  useState, useEffect } from 'react';
 import type { PaletteMode } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { Roboto } from 'next/font/google';
-
-const roboto = Roboto({
-    weight: ['300', '400', '500', '700'],
-    subsets: ['latin'],
-    display: 'swap',
-  });
+import { defaultFont } from '@/shared/config/fonts';
 
 
 export const useTheme = () => {
@@ -26,7 +20,7 @@ export const useTheme = () => {
 
     const theme = createTheme({
         typography: {
-          fontFamily: roboto.style.fontFamily,
+          fontFamily: defaultFont.style.fontFamily,
           },
           palette: {
               mode: mode,
