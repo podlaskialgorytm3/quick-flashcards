@@ -25,7 +25,7 @@ export const useTheme = () => {
           palette: {
               mode: mode,
               text: {
-                  primary: mode === 'dark' ? '#fff' : '#001e3c',
+                  primary: mode === 'dark' ? '#fff' : '#000000',
               },
           },
       });
