@@ -24,6 +24,9 @@ export const useTheme = () => {
           },
           palette: {
               mode: mode,
+              background: {
+                default: mode === 'dark' ? '#030712' : '#f4f6f8',
+              },
               text: {
                   primary: mode === 'dark' ? '#fff' : '#000000',
               },
