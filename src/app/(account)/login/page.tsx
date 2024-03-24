@@ -4,8 +4,6 @@ import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -15,20 +13,16 @@ import Typography from '@mui/material/Typography';
 import { CssBaseline } from '@mui/material';
 import { BackgroundImage } from '@/features/account/components/background-image';
 import { Copyright } from '@/features/account/components/copyright';
+import { signIn, useSession } from 'next-auth/react';
 
 export default function SignInSide() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  // const { data: session } = useSession();
+
 
   return (
     <>
     <CssBaseline />
+    {/* {session && <h1>Jesteś zalogowany</h1>} */}
       <Grid container component="main" sx={{ height: '100vh' }}>
         <BackgroundImage />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -47,7 +41,7 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -68,10 +62,6 @@ export default function SignInSide() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
@@ -79,6 +69,20 @@ export default function SignInSide() {
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
+              </Button>
+              <Button
+                fullWidth
+                variant="outlined"
+                sx={{ mt: 0, mb: 2 , width: '45%'}}
+              >
+                Sign In with Google
+              </Button>
+              <Button
+                fullWidth
+                variant="outlined"
+                sx={{ mt: 0, mb: 2 ,ml: 6, width: '45%'}}
+              >
+                Sign In with Github
               </Button>
               <Grid container>
                 <Grid item xs>

@@ -13,18 +13,15 @@ export const metadata: Metadata = {
   description: "A simple app, which helps you to learn faster and more effectively.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
+      
       <AppRouterCacheProvider options={{key: 'css'}}>
           <body className={defaultFont.className}>
             <ThemeContainer>
             <CssBaseline />
-            {children}
+              {children}
             </ThemeContainer>
             </body>
       </AppRouterCacheProvider>
